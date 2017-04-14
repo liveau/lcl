@@ -190,3 +190,9 @@
 	.og-details { float: none; width: 100%; }
 	
 }
+
+.quote {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+}

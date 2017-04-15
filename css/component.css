@@ -22,7 +22,7 @@
 .og-grid li.og-expanded > a::after {
 	top: auto;
 	border: solid transparent;
-	content: " ";
+	content: " "; 
 	height: 0;
 	width: 0;
 	position: absolute;

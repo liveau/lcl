@@ -46,7 +46,7 @@
 }
 
 .og-expander-inner {
-	padding: 50px 30px;
+	padding: 50px 20px;
 }
 
 .og-close {
@@ -133,7 +133,6 @@
 }
 
 .og-details a::before {
-	content: '\2192';
 	display: inline-block;
 	margin-right: 10px;
 }

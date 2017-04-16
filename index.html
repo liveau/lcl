@@ -19,70 +19,9 @@
 		<link rel="stylesheet" type="text/css" href="https://liveau.github.io/lcl/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="https://afeld.github.io/emoji-css/emoji.css" />
 		<link rel="stylesheet" type="text/css" href="https://ellekasai.github.io/twemoji-awesome/twemoji-awesome.css" />
+		<link rel="stylesheet" type="application/x-javascript" href="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" />
 		<script src="https://liveau.github.io/lcl/js/modernizr.custom.js"></script>
-<script>
-		
-var imgUrl = 'http://gw.alicdn.com/tps/i3/TB1V1AsFVXXXXcBXVXXpAOt1VXX-186-186.jpg';
 
-var lineLink = 'http://m.taohua.com/market/ebook/game-sishu.php';
-
-var descContent = "8月28日-9月10日下载淘宝阅读客户端，玩游戏还能抢手机！";
-
-var shareTitle = "疯狂撕书魔";
-
-var appid = '';
-
-function shareFriend() {
-    WeixinJSBridge.invoke('sendAppMessage', {
-        "appid": appid,
-        "img_url": imgUrl,
-        "img_width": "640",
-        "img_height": "640",
-        "link": lineLink,
-        "desc": descContent,
-        "title": shareTitle
-    }, function(res) {
-        _report('send_msg', res.err_msg);
-    })
-}
-
-function shareTimeline() {
-    WeixinJSBridge.invoke('shareTimeline', {
-        "img_url": imgUrl,
-        "img_width": "640",
-        "img_height": "640",
-        "link": lineLink,
-        "desc": descContent,
-        "title": shareTitle
-    }, function(res) {
-        _report('timeline', res.err_msg);
-    });
-}
-
-function shareWeibo() {
-    WeixinJSBridge.invoke('shareWeibo', {
-        "content": descContent,
-        "url": lineLink,
-    }, function(res) {
-        _report('weibo', res.err_msg);
-    });
-}
-
-document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-    
-    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-        shareFriend();
-    });
-    
-    WeixinJSBridge.on('menu:share:timeline', function(argv) {
-        shareTimeline();
-    });
-    
-    WeixinJSBridge.on('menu:share:weibo', function(argv) {
-        shareWeibo();
-    });
-}, false);
-</script>
 	
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -99,10 +38,9 @@ ga('send', 'pageview');
 		<div class="container">	
 							<header class="clearfix">
 				<h1>拼箱海运 到墨尔本</h1>
-				<img src="images/full/jasmine.JPG" style="display: none;">
 				<img style="width:60px;height:60px;position: absolute; top: 50px; right: 0; border: 0;" src="images/full/1f6a2.svg" alt="" >
 				<br>
-				<h2><span class="bordered">只计体积，不计重量<br>基本价格<i class='twa twa-heavy-dollar-sign'></i><font style='background-color:DodgerBlue;color:white'>22</font>，0.064方（长宽高40cm x 40cm x 40cm）<br><br>从中国东莞到墨尔本，每周有船，拼到1个立方就上船</span></h2>
+				<h2><span class="bordered" id="description">只计体积，不计重量<br>基本价格<i class='twa twa-heavy-dollar-sign'></i><font style='background-color:DodgerBlue;color:white'>22</font>，0.064方（长宽高40cm x 40cm x 40cm）<br><br>从中国东莞到墨尔本，每周有船，拼到1个立方就上船</span></h2>
 				<h2><span><font style='background-color:TEAL;color:white'><b>点击下面条目，显示具体内容</b></font></span></h2>
 			</header>
 			<div class="main">
@@ -592,6 +530,60 @@ ga('send', 'pageview');
 				Grid.init();
 			});
 		</script>
+<script>
+var imgUrl = "images/full/jasmine.JPG";
+var lineLink = window.location.href;
+var descContent = document.getElementById("description").innerHTML;
+var shareTitle = document.title;
+var appid = '';
+function shareFriend() {
+WeixinJSBridge.invoke('sendAppMessage',{
+"appid": appid,
+"img_url": imgUrl,
+"img_width": "640",
+"img_height": "640",
+"link": lineLink,
+"desc": descContent,
+"title": shareTitle
+}, function(res) {
+_report('send_msg', res.err_msg);
+})
+}
+function shareTimeline() {
+WeixinJSBridge.invoke('shareTimeline',{
+"img_url": imgUrl,
+"img_width": "640",
+"img_height": "640",
+"link": lineLink,
+"desc": descContent,
+"title": shareTitle
+}, function(res) {
+_report('timeline', res.err_msg);
+});
+}
+function shareWeibo() {
+WeixinJSBridge.invoke('shareWeibo',{
+"content": descContent,
+"url": lineLink,
+}, function(res) {
+_report('weibo', res.err_msg);
+});
+}
 
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+WeixinJSBridge.on('menu:share:appmessage', function(argv){
+shareFriend();
+});
+
+WeixinJSBridge.on('menu:share:timeline', function(argv){
+shareTimeline();
+});
+
+WeixinJSBridge.on('menu:share:weibo', function(argv){
+shareWeibo();
+});
+}, false);
+</script>
 	</body>
 </html>
